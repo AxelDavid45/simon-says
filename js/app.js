@@ -14,6 +14,7 @@ class Game {
             orange: btnNaranja,
             green: btnVerde 
         };
+        this.chooseColor = this.chooseColor.bind(this);
 
         this.startGame();
     }
@@ -24,6 +25,18 @@ class Game {
         btnEmpezar.classList.add('hide');
 
         this.nextLevel();
+        this.addButtonsEvents();
+    }
+
+    addButtonsEvents() {
+        this.colors.blueGreen.addEventListener('click', this.chooseColor);
+        this.colors.purple.addEventListener('click', this.chooseColor);
+        this.colors.orange.addEventListener('click', this.chooseColor);
+        this.colors.green.addEventListener('click', this.chooseColor);
+    }
+
+    chooseColor() {
+        console.log(this);
     }
 
     generateSequence() {
@@ -58,8 +71,6 @@ class Game {
             setTimeout(() => this.ligthBtn(button), 1000 * i);
         }
     }
-
-    
 }
 
 function startGame() {
